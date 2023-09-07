@@ -9,6 +9,9 @@ function Table(props) {
   const [postsperPages, setpostsperPages] = useState(10);
 
 
+  useEffect(() => {
+    GetallData()
+  }, [])
 
   const GetallData = async () => {
     try {
@@ -25,6 +28,8 @@ function Table(props) {
       console.log(err)
     };
   }
+
+
 
   // const apifilter = async () => {
   //   try {
@@ -43,10 +48,6 @@ function Table(props) {
   // apifilter()
 
 
-  useEffect(() => {
-    GetallData()
-  }, [])
-
   const handleSearch = (e) => {
     const { value } = e.target;
     setSearchText(value);
@@ -64,7 +65,7 @@ function Table(props) {
   const filteredArray = currentpost?.filter((item) => {
     return item.title.toLowerCase().includes(searchText.toLowerCase());
   })
-
+ 
 
   let pages = [];
   for (let i = 1; i <= Math.ceil(Data.length / postsperPages); i++) {
@@ -150,6 +151,8 @@ function Table(props) {
         <button type="button" className="btn-btn bt2 text-white fw-bold" onClick={lastclick}>LAST</button>
         <button type="button" className="btn-btn bt2 text-white fw-bold" onClick={nextclick}>NEXT</button>
       </div>
+
+      
 
     </div>
   );

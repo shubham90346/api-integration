@@ -41,7 +41,7 @@
 }
 
 .uty {
-    margin-left: 68%;
+    margin-left: 70%;
     padding: 1%;
 }
 
@@ -52,4 +52,12 @@
 .btn-btn {
     border: 2px solid black;
     margin: 1%;
+}
+.bgt{
+    background-color: blueviolet;
+ 
+}
+.bv{
+    margin-left: 75%;
+    margin-bottom: 2%;
 }
