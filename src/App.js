@@ -1,11 +1,13 @@
 
 import './App.css';
-import Table from './Components/Table';
+import ApiTable from './Components/ApiTable';
+// import Table from './Components/Table';
 
 function App() {
   return (
     <div className="App">
-      <Table />
+      {/* <Table /> */}
+      <ApiTable/>
     </div>
   );
 }
