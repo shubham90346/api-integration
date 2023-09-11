@@ -18,14 +18,13 @@ function ApiTable(props) {
   const apifilter = async () => {
     try {
       const res = await fetch(`https://jsonplaceholder.typicode.com/posts`)
-      
       if (!res.ok) {
         console.log(` Error! Status: ${res.status}`);
       }
       const apidata = await res.json();
       setapiData(apidata)
-
-    } catch (error) {
+    } 
+    catch (error) {
       console.log(error)
     }
   }
@@ -33,25 +32,34 @@ function ApiTable(props) {
 
   const TitleApi = async () => {
     try {
-      const response = await fetch(`https://jsonplaceholder.typicode.com/posts?title=${searchText}`)
-          console.log(response)
-      if (!response.ok) {
-        console.log(` Error! Status: ${response.status}`);
+      if (searchText == "") {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/posts?title=${searchText}`)
+        console.log(response)
+        if (!response.ok) {
+          console.log(` Error! Status: ${response.status}`);
+        }
+        const apidatas = await response.json();
+        setTitles(apidatas)
       }
-      const apidatas = await response.json();
-      setTitles(apidatas)
-
-    } catch (error) {
+      else {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${searchText}`)
+        console.log(response)
+        if (!response.ok) {
+          console.log(` Error! Status: ${response.status}`);
+        }
+        const apidatas = await response.json();
+        setTitles(apidatas)
+      }
+    }
+    catch (error) {
       console.log(error)
     }
   }
-
 
   const handleSearch = (e) => {
     const { value } = e.target;
     setSearchText(value);
   }
-
   const handleclick = (() => {
     setviewmore(!Viewmore)
   })
@@ -68,6 +76,7 @@ function ApiTable(props) {
   const firstpostindexs = lastpostindexs - titleperpage
   const currentTitle = Titles.slice(firstpostindexs, lastpostindexs)
 
+
   //  filter of search 
   const filteredArray = currentpost?.filter((item) => {
     return item.title.toLowerCase().includes(searchText.toLowerCase());
@@ -82,7 +91,6 @@ function ApiTable(props) {
   let pagess = [];
   for (let i = 1; i <= Math.ceil(apiData.length / postsperPages); i++) {
     pagess.push(i)
-    
   }
 
 
@@ -90,10 +98,9 @@ function ApiTable(props) {
   let pages = [];
   for (let i = 1; i <= Math.ceil(Titles.length / titleperpage); i++) {
     pages.push(i)
-    
+
   }
 
-  // }
   const onclicksearch = () => {
     TitleApi()
   }
@@ -113,7 +120,6 @@ function ApiTable(props) {
   const lastclick = (() => {
     setCurrentPage(10)
   })
-
 
 
   return (
@@ -170,15 +176,13 @@ function ApiTable(props) {
             }) : "no data"
 
           }
-
-
         </tbody>
       </table>
 
 
       <div className='uty'>
         {
-          (searchText < 7) ?
+          (searchText < 10) ?
             pagess.map((page, index) => {
               return <button key={index} onClick={() => setCurrentPage(page)} className={page == currentPage ? 'active text-white fw-bold' : 'pag1 '} >{page} </button>
             })

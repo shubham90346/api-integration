@@ -29,8 +29,7 @@ function Table(props) {
     };
   }
 
-
-
+  
   // const apifilter = async () => {
   //   try {
   //     const res = await fetch(`https://jsonplaceholder.typicode.com/posts?title=${searchText}`)
