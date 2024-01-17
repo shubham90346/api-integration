@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/api-integration/static/css/main.acbeeafb.css",
+    "main.js": "/api-integration/static/js/main.7ef17fa9.js",
+    "index.html": "/api-integration/index.html",
+    "main.acbeeafb.css.map": "/api-integration/static/css/main.acbeeafb.css.map",
+    "main.7ef17fa9.js.map": "/api-integration/static/js/main.7ef17fa9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.acbeeafb.css",
+    "static/js/main.7ef17fa9.js"
+  ]
+}
